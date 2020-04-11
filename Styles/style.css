@@ -4,6 +4,11 @@
   width: 100%;
 }
 
+.sith {
+  width: 250px;
+  height: 150px;
+}
+
 .footer-copyright {
   background-color: #e57373;
 }
