@@ -1,4 +1,17 @@
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://rawg-video-games-database.p.rapidapi.com/developers/%7Bid%7D",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+		"x-rapidapi-key": "fba6195fe3mshbca51f81f996315p19a926jsne57c3064f574"
+	}
+}
 
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
 
 
