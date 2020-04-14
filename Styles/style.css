@@ -1,4 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
+.pageheader {
+  background: rgb(231,33,33);
+  background: linear-gradient(90deg, rgba(231,33,33,1) 0%, rgba(229,115,115,1) 87%, rgba(226,159,159,1) 100%);
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  padding: 0 0 10px 20px;
+}
+
+.card-container {
+  display: flex;
+  padding: 50px;
+}
+
+.card-row {
+  flex-direction: column;
+  padding: 50px;
+}
 .pagefooter {
   background-color: #616161;
   width: 100%;
@@ -10,7 +34,8 @@
 }
 
 .footer-copyright {
-  background-color: #e57373;
+  background: rgb(97,97,97);
+  background: linear-gradient(90deg, rgba(97,97,97,1) 0%, rgba(229,115,115,1) 100%);
   padding: 2px;
 
 }
