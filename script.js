@@ -38,7 +38,7 @@ function randomGame() {
 	});
 }
 
-randomGame();
+// randomGame();
 
 
 
@@ -191,16 +191,10 @@ randomGame();
 
 
 function searchMovies() {
-    
-        pageNu = (Math.floor(Math.random() * 50) + 1);
-     
-
-    var queryURL = "https://www.omdbapi.com/?s=horror&page=" + pageNu + "&apikey=d9a4745e";
-    console.log(queryURL);
-    
-   
+    pageNu = (Math.floor(Math.random() * 50) + 1);
+    var movieSearchURL = "https://www.omdbapi.com/?s=horror&page=" + pageNu + "&apikey=d9a4745e";
     $.ajax({
-      url: queryURL,
+      url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
         arraySearch = (Math.floor(Math.random() * 10));
@@ -211,47 +205,40 @@ function searchMovies() {
       if (response.Search[arraySearch].Poster === 'N/A') {
         searchMovies();
       }
-
-      var movieName = $("<h1>").text(response.Search[arraySearch].Title);
-      var movieImage = $("<img>").attr("src", response.Search[arraySearch].Poster);
-        
-      // $("#movieDiv").empty();
-      // $("#movieDiv").append(movieName, movieImage);
-      for ( i=0; i<6; i++) {
-      var newImg = `<div class=col-md-4 col-sm-6>
-      <div class=portfolio-item>
-          <h1> ${response.Search[arraySearch].Title}</h1>
-          <div class=image>
-              <img src=${response.Search[arraySearch].Poster}>
-          </div>
-      </div>
-    </div>`
-      
-    $('#movieDiv').append(newImg);
+      else {
+      var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
+      movieDetail(movieSearch2URL);
       }
     });
-  }
 
-  
+   function movieDetail(movieSearch2URL) {
+    $.ajax({
+      url: movieSearch2URL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      var arraySearch = Math.floor(Math.random() * 19);
+		console.log(arraySearch);
+		console.log(response.results[arraySearch].name);
+		var gameDiv = $("<div>");
+		var gameName = response.results[arraySearch].name;
+		var gameHeading = $("<h2>").text(gameName);
+		gameDiv.append(gameHeading);
+		var imgSrc = response.results[arraySearch].background_image;
+		var image = $("<img>").attr("src", imgSrc);
+		gameDiv.append(image);
+
+      });
+      }
+    }
+
   $("#searchMovie").on("click", function(event) {
     event.preventDefault();
     var movieSearch = $('#movieInput').val().trim();
-
     searchMovies(movieSearch);
-
-      });
+  });
       
-      // <div class=hover-effect>
-      //     <div class=hover-content>
-      //         <h1>${albumName}</h1></a>
-      //         <p id=clickInfo${albumCount}>click track to listen to sample audio</p>
-      //         <div class=tracks id=album${albumCount}>
-      //         </div>
-      //     </div>
-      // </div>
 // Poster
 // name
 // Rating 
 // year 
-// plot 
-
