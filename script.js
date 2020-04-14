@@ -1,17 +1,45 @@
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://rawg-video-games-database.p.rapidapi.com/developers/%7Bid%7D",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-		"x-rapidapi-key": "fba6195fe3mshbca51f81f996315p19a926jsne57c3064f574"
-	}
+// Platform ID's
+// 1 = xboxone
+// 4 = pc
+// 7= switch
+// 18 = ps4
+
+
+function randomGame() {
+	var pageNumber = Math.floor(Math.random() * 18881) + 1;
+	var gamesUrl = "https://rawg-video-games-database.p.rapidapi.com/games?page="
+	var combUrl = gamesUrl + pageNumber;
+	console.log("Random Page Number: " + pageNumber);
+	console.log(combUrl);
+
+	$.ajax( {
+		async: true,
+		crossDomain: true,
+		url: combUrl,
+		method: "GET",
+		headers: {
+			"x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+			"x-rapidapi-key": "fba6195fe3mshbca51f81f996315p19a926jsne57c3064f574"
+		}
+	}).then(function(response) {
+		console.log(response);
+		var arraySearch = Math.floor(Math.random() * 19);
+		console.log(arraySearch);
+		console.log(response.results[arraySearch].name);
+		var gameDiv = $("<div>");
+		var gameName = response.results[arraySearch].name;
+		var gameHeading = $("<h2>").text(gameName);
+		gameDiv.append(gameHeading);
+		var imgSrc = response.results[arraySearch].background_image;
+		var image = $("<img>").attr("src", imgSrc);
+		gameDiv.append(image);
+
+		$("#game-div").append(gameDiv);
+	});
 }
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+randomGame();
+
 
 
 
