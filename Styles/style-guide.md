@@ -7,7 +7,7 @@
 
 ### Color Guide
 * Materialize Color Pallete: https://materializecss.com/color.html
-  * Red (header / footer)
+  * Red (header / footer): #e57373
   * Dark Grey (font)
 ---
 
