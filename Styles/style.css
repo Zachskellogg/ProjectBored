@@ -3,6 +3,22 @@
   padding: 0;
 }
 
+h6 {
+  padding: 10px;
+}
+
+[type="radio"]:checked+span:after,[type="radio"].with-gap:checked+span:after {
+  background-color: black;
+}
+
+[type="radio"]:checked+span:after,[type="radio"].with-gap:checked+span:before,[type="radio"].with-gap:checked+span:after {
+  border: 2px solid #ee5b5b
+}
+
+.waves-effect.waves-light .waves-ripple {
+  background-color: #ee5b5b;
+}
+
 .pageheader {
   background: rgb(0,0,0);
   background: linear-gradient(90deg, rgba(0,0,0,1) 28%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 100%);
@@ -10,8 +26,12 @@
 
 .container {
   width: 100%;
-  margin: auto;
-  padding: 0 0 10px 20px;
+  margin: 15px;
+  /* padding: 0 0 10px 20px; */
+}
+
+.btn-container {
+  margin: 15px;
 }
 
 .card-container {
@@ -41,7 +61,6 @@
   background: rgb(97,97,97);
   background: linear-gradient(90deg, rgba(97,97,97,1) 0%, rgba(229,115,115,1) 100%);
   padding: 2px;
-
 }
 
 .checkbox {
