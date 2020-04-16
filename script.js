@@ -38,7 +38,7 @@ function randomGame() {
 	});
 }
 
-randomGame();
+// randomGame();
 
 
 
@@ -158,63 +158,100 @@ randomGame();
 
 
 
-function searchMovies(movie) {
-    
-    for(var i = 0; i<50; i++){
-        pageNu = (Math.floor(Math.random() * 50));
-    }  
 
-    var queryURL = "https://www.omdbapi.com/?s=horror&page=" + pageNu + "&apikey=d9a4745e";
-    console.log(queryURL);
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function searchMovies() {
+    pageNu = (Math.floor(Math.random() * 60) + 1);
+    var movieSearchURL = "https://www.omdbapi.com/?s=horror&page=" + pageNu + "&apikey=d9a4745e";
    
     $.ajax({
-      url: queryURL,
+      url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
-        for(var i = 0; i<50; i++){
-            arraySearch = (Math.floor(Math.random() * 10));
-        }  
-        console.log(arraySearch);
+        arraySearch = (Math.floor(Math.random() * 10));
+      
+      console.log(arraySearch);
      
       console.log(response);
-
-      var movieName = $("<h1>").text(response.Search[arraySearch].Title);
-      var movieImage = $("<img>").attr("src", response.Search[arraySearch].Poster);
-        
-    
-
-      $("#movieDiv").empty();
-      $("#movieDiv").append(movieName, movieImage);
+      if (response.Search[arraySearch].Poster === 'N/A') {
+        searchMovies();
+      }
+      else if (response === 'false') {
+        searchMovies();
+      }
+      else {
+      var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
+      movieDetail(movieSearch2URL);
+      }
     });
-  }
+
+   function movieDetail(movieSearch2URL) {
+    $.ajax({
+      url: movieSearch2URL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      if (response.Rated === 'Unrated') {
+        searchMovies();
+      }
+      else if (response.Rated === 'N/A') {
+        searchMovies();
+      }
+      else if (response.Rated === 'UNRATED') {
+        searchMovies();
+      }
+      else if (response.Rated === 'Not Rated') {
+        searchMovies();
+      }
+      else if (response.Rated === 'NOT RATED') {
+        searchMovies();
+      }
+      
+    var movieDiv = response.Title
+        $(movieDiv).append('#zachsCard');
+    
+      });
+      }
+    }
+  
+
   $("#searchMovie").on("click", function(event) {
     event.preventDefault();
-    var movieSearch = $('#movieInput').val().trim();
-
-    searchMovies(movieSearch);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // var movieSearch = $('#movieInput').val().trim();
+    searchMovies();
+  });
+      
+// Poster
+// name
+// Rating 
+// year 
