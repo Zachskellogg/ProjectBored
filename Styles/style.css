@@ -30,6 +30,11 @@ h6 {
   /* padding: 0 0 10px 20px; */
 }
 
+select.browser-default {
+  display: block;
+  width: auto;
+}
+
 .btn-container {
   margin: 15px;
 }
