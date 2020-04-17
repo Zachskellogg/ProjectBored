@@ -200,63 +200,134 @@ randomBook();
 
 
 
-function searchMovies(movie) {
-    
-    for(var i = 0; i<50; i++){
-        pageNu = (Math.floor(Math.random() * 50));
-    }  
 
-    var queryURL = "https://www.omdbapi.com/?s=horror&page=" + pageNu + "&apikey=d9a4745e";
-    console.log(queryURL);
-    
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function searchMovies() {
+    var pageNu = (Math.floor(Math.random() * 80) + 1);
+    var movieSearchURL = "https://www.omdbapi.com/?s=action&page=" + pageNu + "&apikey=d9a4745e";
+   console.log(movieSearchURL);
     $.ajax({
-      url: queryURL,
+      url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
-        for(var i = 0; i<50; i++){
-            arraySearch = (Math.floor(Math.random() * 10));
-        }  
-        console.log(arraySearch);
+        var arraySearch = (Math.floor(Math.random() * 9));
+    
+      
+      console.log(arraySearch);
      
       console.log(response);
 
-      var movieName = $("<h1>").text(response.Search[arraySearch].Title);
-      var movieImage = $("<img>").attr("src", response.Search[arraySearch].Poster);
-        
-    
+      // if (response.Search[arraySearch].Poster === 'N/A') {
+      //   searchMovies();
+      // }
+      // else if (response === 'false') {
+      //   searchMovies();
+      // }
+      // else {
+      
 
-      $("#movieDiv").empty();
-      $("#movieDiv").append(movieName, movieImage);
+      
+       var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
+       
+      movieDetail(movieSearch2URL);
+      console.log(movieSearch2URL);
+  
+    
+    });
+
+   function movieDetail(movieSearch2URL) {
+    $.ajax({
+      url: movieSearch2URL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      switch(response.Rated) {
+          case'G':
+          case'PG':
+          case'PG-13':
+          case'R':
+          var movieName = response.Title,
+              moviePoster = response.Poster
+          
+              var newCard =`   <div class="card-row">
+              <div class="card">
+                <div class="card-image">
+                  <div class="card-content">
+                    <div>${movieName}</div>
+                    <img src="${moviePoster}">
+                  </div>
+                </div>
+              </div>
+            </div>`;
+            $('.card-container').append(newCard);
+          break;
+          default: 
+          searchMovies();
+          break;
+
+      }
+        
+        
+
+      // if (response.Rated === 'G' === 'PG' === 'PG-13' === 'R') {
+      //   searchMovies();
+      // }
+      // else if (response.Rated === 'N/A') {
+      //   searchMovies();
+      // }
+      // else if (response.Rated === 'UNRATED') {
+      //   searchMovies();
+      // }
+      // else if (response.Rated === 'Not Rated') {
+      //   searchMovies();
+      // }
+      // else if (response.Rated === 'NOT RATED') {
+      //   searchMovies();
+      // }
+      // else {
+      
     });
   }
-  $("#searchMovie").on("click", function(event) {
+}
+  
+// radio button checked and the button pushed
+  $(".btn").on("click", function(event) {
+      var checkRadio = document.querySelector( 
+          'input[name="group1"]:checked'); 
+        
+      if(checkRadio != null) { 
+        for (i=0; i<6; i++) {
     event.preventDefault();
-    var movieSearch = $('#movieInput').val().trim();
-
-    searchMovies(movieSearch);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // var movieSearch = $('#movieInput').val().trim();
+    searchMovies();
+        }  
+      }
+  });
+      
+// Poster
+// name
+// Rating 
+// year 
