@@ -68,7 +68,8 @@ select.browser-default {
   padding: 50px;
 }
 .pagefooter {
-  background-color: #616161;
+  background: rgb(0,0,0);
+  background: linear-gradient(270deg, rgba(0,0,0,1) 27%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 97%);
   width: 100%;
 }
 
@@ -78,8 +79,8 @@ select.browser-default {
 }
 
 .footer-copyright {
-  background: rgb(97,97,97);
-  background: linear-gradient(90deg, rgba(97,97,97,1) 0%, rgba(229,115,115,1) 100%);
+  background: rgb(0,0,0);
+  background: linear-gradient(270deg, rgba(0,0,0,1) 27%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 97%);
   padding: 2px;
 }
 
