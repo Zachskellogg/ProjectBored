@@ -1,9 +1,8 @@
-// Platform ID's
-// 1 = xboxone
-// 4 = pc
-// 7= switch
-// 18 = ps4
-
+// // Platform ID's
+// // 1 = xboxone
+// // 4 = pc
+// // 7= switch
+// // 18 = ps4
 
 function randomGame() {
 	var pageNumber = Math.floor(Math.random() * 18881) + 1;
@@ -33,22 +32,49 @@ function randomGame() {
 		var imgSrc = response.results[arraySearch].background_image;
 		var image = $("<img>").attr("src", imgSrc);
 		gameDiv.append(image);
-
 		$("#game-div").append(gameDiv);
 	});
 }
 
-// randomGame();
+//randomGame();
 
+function randomBook() {
+	$.ajax( {
+		async: true,
+		crossDomain: true,
+		url: "https://google-books.p.rapidapi.com/volumes",
+		method: "GET",
+		headers: {
+			"x-rapidapi-host": "google-books.p.rapidapi.com",
+			"x-rapidapi-key": "fba6195fe3mshbca51f81f996315p19a926jsne57c3064f574"
+		}
+	}).then(function(response) {
+		console.log(response);
+		var arraySearch = Math.floor(Math.random() * 10);
+		console.log(arraySearch);
+		console.log(response.items[arraySearch].volumeInfo.title)
 
+	})
+}
 
+randomBook();
 
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://google-books.p.rapidapi.com/volumes",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "google-books.p.rapidapi.com",
+// 		"x-rapidapi-key": "fba6195fe3mshbca51f81f996315p19a926jsne57c3064f574"
+// 	}
+// }
 
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
 
-
-
-
-
+	
 
 
 
