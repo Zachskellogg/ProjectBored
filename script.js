@@ -80,7 +80,7 @@ function searchMovies() {
       url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
-        var arraySearch = (Math.floor(Math.random() * 9));
+      var arraySearch = (Math.floor(Math.random() * 9));
       // console.log(arraySearch);
       // console.log(response);  
        var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
