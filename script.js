@@ -109,7 +109,6 @@ function searchMovies() {
           case'PG':
           case'PG-13':
           case'R':
-          case'N/A':
           var movieName = response.Title,
               moviePoster = response.Poster
               movieActors = response.Actors
