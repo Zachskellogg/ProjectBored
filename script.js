@@ -21,7 +21,17 @@ function randomGame() {
 
 		var gameName = response.results[arraySearch].name;
 		var gameImg = response.results[arraySearch].background_image;
-
+    var rating = response.results[arraySearch].rating
+  
+    if (gameImg === 'N/A') {
+      gameImg = response.results[arraySearch].short_screenshots[0]
+  }
+    if (gameImg === '0') {
+      gameImg =  "./images/placeholder.png"
+    }
+    if (rating = '0') {
+      rating = "Not Rated"
+    }
     var newCard =`
       <div class="card-row">
         <div class="card">
@@ -29,6 +39,7 @@ function randomGame() {
             <div class="card-content">
               <div>${gameName}</div>
                 <img src="${gameImg}">
+                <div><b>Rating: </b> ${rating} / 5</div>
             </div>
           </div>
         </div>
@@ -71,25 +82,17 @@ function randomBook() {
 }
 
 function searchMovies() {
+    var genre = $("#genreSelect :selected").text();
     var pageNu = (Math.floor(Math.random() * 80) + 1);
-    var movieSearchURL = "https://www.omdbapi.com/?s=action&page=" + pageNu + "&apikey=d9a4745e";
-   console.log(movieSearchURL);
+    var movieSearchURL = "https://www.omdbapi.com/?s=" + genre + "&page=" + pageNu + "&apikey=d9a4745e";
+  //  console.log(movieSearchURL);
     $.ajax({
       url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
         var arraySearch = (Math.floor(Math.random() * 9));
-      console.log(arraySearch);
-      console.log(response);
-
-      // if (response.Search[arraySearch].Poster === 'N/A') {
-      //   searchMovies();
-      // }
-      // else if (response === 'false') {
-      //   searchMovies();
-      // }
-      // else {
-      
+      // console.log(arraySearch);
+      // console.log(response);
        var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
       movieDetail(movieSearch2URL);
       console.log(movieSearch2URL);
@@ -106,8 +109,14 @@ function searchMovies() {
           case'PG':
           case'PG-13':
           case'R':
+          case'N/A':
           var movieName = response.Title,
               moviePoster = response.Poster
+              movieActors = response.Actors
+              //places a placeholder 
+          if (moviePoster === 'N/A') {
+              moviePoster = "./images/placeholder.png"
+          }
           
           var newCard =`   <div class="card-row">
               <div class="card">
@@ -115,6 +124,7 @@ function searchMovies() {
                   <div class="card-content">
                     <div class="card-movie-name">${movieName}</div>
                     <img src="${moviePoster}">
+                    <div><b>Actors: </b> ${movieActors}</div>
                   </div>
                 </div>
               </div>
@@ -125,23 +135,6 @@ function searchMovies() {
           searchMovies();
           break;
       }
-      // if (response.Rated === 'G' === 'PG' === 'PG-13' === 'R') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'N/A') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'UNRATED') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'Not Rated') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'NOT RATED') {
-      //   searchMovies();
-      // }
-      // else {
-      
     });
   }
 }
