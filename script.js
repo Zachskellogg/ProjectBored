@@ -140,6 +140,7 @@ function searchMovies() {
 }
 // radio button checked and the button pushed
   $(".btn").on("click", function(event) {
+    $(".card-container").empty();
     var checkMovie = document.querySelector('input[value="movies"]:checked');
     var checkGame = document.querySelector('input[value="games"]:checked');
     var checkBook = document.querySelector('input[value="books"]:checked');
