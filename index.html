@@ -36,9 +36,9 @@
     <!-- I'm Bored Site Header -->
     <header class="pageheader">
 
-      <div class="container"> 
-        <h1 i class="fab fa-galactic-republic white-text"> I'm Bored...</h1>
-        <h6 class="white-text">Let us help you with that.</h6>
+      <div class=""> 
+        <h1 i class="fab fa-galactic-republic white-text container"> I'm Bored...</h1>
+        <h6 class="white-text container">Let us help you with that.</h6>
       </div>
 
     </header>
@@ -54,36 +54,25 @@
       </p>
       <p>
         <label>
-          <input class="with-gap" name="group2" type="radio"  />
+          <input class="with-gap" name="group1" type="radio" value="" />
           <span>Video Games</span>
         </label>
       </p>
       <p>
         <label>
-          <input class="with-gap" name="group3" type="radio"  />
+          <input class="with-gap" name="group1" type="radio" value="books" />
           <span>Books</span>
         </label>
       </p>
-      <p>
-        <label>
-          <input class="with-gap" name="group4" type="radio"  />
-          <span>Music</span>
-        </label>
-      </p>
-      <p>
-          <label>
-            <input class="with-gap" name="group5" type="radio"  />
-            <span>Eat</span>
-          </label>
-      </p>
-      </div>
-      <!-- Selector -->
+    </form>
 
+      <!-- Selector -->
       <div class="container">
         <div class="row">
           <div class="input-field col s12">
-            <select class="browser-default">
+            <select class="browser-default" id="genreSelect">
               <option value="" disabled selected>Select Genre</option>
+              <option value="4">All</option>
               <option value="1">Action</option>
               <option value="2">Drama</option>
               <option value="3">Horror</option>
@@ -100,12 +89,13 @@
       </div>
         
 
-    <!-- Main Page Content -->
-    
+    <!-- Result Card Content -->
     <main class="page-main">
       <div class="card-container">
       </div>
     </main>
+
+    </div>
 
     <!-- Team Sith Footer -->
     <footer class="pagefooter">
@@ -128,17 +118,14 @@
         </div>
       </div>
 
-      <div class="footer-copyright">
+      <!-- <div class="footer-copyright">
         <div class="container">
           <p class="white-text">© 2020
             <a class="grey-text text-lighten-4 right" href="https://github.com/cojo12/team-sith" target="_blank">I'm Bored Repo</a>
           </p>
         </div>
-      </div>
-
-        </div>
-      </div>
-    </footer>
+      </div> -->
+  </footer>
 
     <script src="script.js"></script>
     
