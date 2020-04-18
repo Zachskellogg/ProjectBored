@@ -108,11 +108,12 @@ function searchMovies() {
           case'R':
           var movieName = response.Title,
               moviePoster = response.Poster
-              var newCard =`   <div class="card-row">
+          
+          var newCard =`   <div class="card-row">
               <div class="card">
                 <div class="card-image">
                   <div class="card-content">
-                    <div>${movieName}</div>
+                    <div class="card-movie-name">${movieName}</div>
                     <img src="${moviePoster}">
                   </div>
                 </div>
