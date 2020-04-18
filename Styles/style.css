@@ -19,7 +19,18 @@
 
 .card-row {
   flex-direction: column;
-  padding: 50px;
+  padding: 20px;
+}
+
+.card-image {
+  width: 250px;
+  height: 400px;
+}
+
+.card-movie-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .checkbox {
@@ -56,6 +67,8 @@
 h6 {
   padding: 10px;
 }
+
+
 
 .pagefooter {
   background: rgb(0,0,0);
