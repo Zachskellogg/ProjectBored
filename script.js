@@ -122,7 +122,8 @@ function searchMovies() {
               <div class="card">
                 <div class="card-image">
                   <div class="card-content">
-                    <div class="card-movie-name">${movieName}</div>
+                    <div class="card-movie-name" title="${movieName}">
+                    ${movieName}</div>
                     <img src="${moviePoster}">
                     <div class="card-movie-actors"><b>Actors: </b> ${movieActors}</div>
                   </div>
