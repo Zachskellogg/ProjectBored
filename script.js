@@ -37,7 +37,7 @@ function randomGame() {
         <div class="card">
           <div class="card-image">
             <div class="card-content">
-              <div>${gameName}</div>
+              <div class="card-game-name">${gameName}</div>
                 <img src="${gameImg}">
                 <div><b>Rating: </b> ${rating} / 5</div>
             </div>
@@ -71,7 +71,7 @@ function randomBook() {
         <div class="card">
           <div class="card-image">
             <div class="card-content">
-              <div>${bookName}</div>
+              <div class="card-book-name">${bookName}</div>
                 <img src="${bookCover}">
             </div>
           </div>
@@ -124,7 +124,7 @@ function searchMovies() {
                   <div class="card-content">
                     <div class="card-movie-name">${movieName}</div>
                     <img src="${moviePoster}">
-                    <div><b>Actors: </b> ${movieActors}</div>
+                    <div class="card-movie-actors"><b>Actors: </b> ${movieActors}</div>
                   </div>
                 </div>
               </div>
@@ -144,19 +144,19 @@ function searchMovies() {
     var checkGame = document.querySelector('input[value="games"]:checked');
     var checkBook = document.querySelector('input[value="books"]:checked');
     if (checkGame != null) {
-      for (i=0; i<6; i++) {
+      for (i=0; i<3; i++) {
         event.preventDefault();
         randomGame();
       }
     }
     else if (checkBook !=null) {
-      for (i=0; i<6; i++) {
+      for (i=0; i<3; i++) {
         event.preventDefault();
         randomBook();
       }
     }
     else if(checkMovie != null) { 
-      for (i=0; i<6; i++) {
+      for (i=0; i<3; i++) {
         event.preventDefault();
         searchMovies();
         // var movieSearch = $('#movieInput').val().trim();
