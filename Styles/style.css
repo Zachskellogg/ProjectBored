@@ -17,6 +17,12 @@
   padding: 50px;
 }
 
+.card-content {
+  background-color: #757575;
+
+  color: white;
+}
+
 .card-row {
   flex-direction: column;
   padding: 20px;
@@ -24,7 +30,8 @@
 
 .card-image {
   width: 250px;
-  height: 400px;
+  height: 100%;
+
 }
 
 .card-movie-name {
