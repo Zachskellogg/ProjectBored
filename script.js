@@ -192,7 +192,7 @@ function randomGame() {
 
 function searchMovies() {
     var pageNu = (Math.floor(Math.random() * 80) + 1);
-    var movieSearchURL = "https://www.omdbapi.com/?s=action&page=" + pageNu + "&apikey=d9a4745e";
+    var movieSearchURL = "https://www.omdbapi.com/?s=all&page=" + pageNu + "&apikey=d9a4745e";
    console.log(movieSearchURL);
     $.ajax({
       url: movieSearchURL,
@@ -205,13 +205,6 @@ function searchMovies() {
      
       console.log(response);
 
-      // if (response.Search[arraySearch].Poster === 'N/A') {
-      //   searchMovies();
-      // }
-      // else if (response === 'false') {
-      //   searchMovies();
-      // }
-      // else {
       
 
       
@@ -234,8 +227,10 @@ function searchMovies() {
           case'PG':
           case'PG-13':
           case'R':
+          case'N/A':
           var movieName = response.Title,
               moviePoster = response.Poster
+              movieActors = response.Actors
           
               var newCard =`   <div class="card-row">
               <div class="card">
@@ -243,6 +238,7 @@ function searchMovies() {
                   <div class="card-content">
                     <div>${movieName}</div>
                     <img src="${moviePoster}">
+                    <div>Actors: ${movieActors}</div>
                   </div>
                 </div>
               </div>
@@ -254,25 +250,6 @@ function searchMovies() {
           break;
 
       }
-        
-        
-
-      // if (response.Rated === 'G' === 'PG' === 'PG-13' === 'R') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'N/A') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'UNRATED') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'Not Rated') {
-      //   searchMovies();
-      // }
-      // else if (response.Rated === 'NOT RATED') {
-      //   searchMovies();
-      // }
-      // else {
       
     });
   }
