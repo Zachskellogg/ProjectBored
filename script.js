@@ -39,7 +39,7 @@ function randomGame() {
             <div class="card-content">
               <div class="card-game-name" title="${gameName}">${gameName}</div>
                 <img src="${gameImg}">
-                <div><b>Rating: </b> ${rating} / 5</div>
+                <div class="card-game-rating"><b>Rating: </b> ${rating} / 5</div>
             </div>
           </div>
         </div>

@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+body {
+  background-image: url("https://www.filterforge.com/filters/11550.jpg");
+  box-sizing: content-box;
+  width: 100%;
+}
+
 .btn {
   background-color: rgb (0,0,0);
   border-radius: 5px;
@@ -44,7 +50,8 @@ font-size: 25px;
 padding-bottom: 5px;
 }
 
-.card-movie-actors {
+.card-movie-actors,
+.card-game-rating {
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
@@ -62,17 +69,18 @@ padding-top: 5px;
 }
 
 .fade {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .fade:hover {
-  opacity: 1;
+  opacity: .5;
 }
 
 .footer-copyright {
   background: rgb(0,0,0);
   background: linear-gradient(270deg, rgba(0,0,0,1) 27%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 97%);
   padding: 2px;
+
 }
 
 h6 {
@@ -80,6 +88,7 @@ h6 {
 }
 
 .pagefooter {
+  margin: 0;
   background: rgb(0,0,0);
   background: linear-gradient(270deg, rgba(0,0,0,1) 27%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 97%);
   width: 100%;
@@ -90,9 +99,14 @@ h6 {
   background: linear-gradient(90deg, rgba(0,0,0,1) 28%, rgba(61,61,61,1) 80%, rgba(117,117,117,1) 100%);
 }
 
+.page-main {
+  height: 100%;
+}
+
 select.browser-default {
   display: block;
-  width: auto;
+  width: 160px;
+
 }
 
 .sith {
@@ -107,6 +121,29 @@ select.browser-default {
 [type="radio"]:checked+span:after,[type="radio"].with-gap:checked+span:before,[type="radio"].with-gap:checked+span:after {
   border: 2px solid #ee5b5b
 }
+
+[type="radio"]:not(:checked)+span,[type="radio"]:checked+span {
+  color: #000000;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: 2rem;
+  -webkit-transition: .28s ease;
+  transition: .28s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+[type="radio"]:not(:checked)+span:before,[type="radio"]:not(:checked)+span:after {
+  border: 2px solid black;
+  font-size: 20px;
+}
+
 
 .waves-effect.waves-light .waves-ripple {
   background-color: #ee5b5b;
