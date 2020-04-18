@@ -74,172 +74,22 @@ randomBook();
 // 	console.log(response);
 // });
 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function searchMovies() {
+
+    var genre = $("#genreSelect :selected").text();
     var pageNu = (Math.floor(Math.random() * 80) + 1);
-    var movieSearchURL = "https://www.omdbapi.com/?s=all&page=" + pageNu + "&apikey=d9a4745e";
-   console.log(movieSearchURL);
+    var movieSearchURL = "https://www.omdbapi.com/?s=" + genre + "&page=" + pageNu + "&apikey=d9a4745e";
+  //  console.log(movieSearchURL);
     $.ajax({
       url: movieSearchURL,
       method: "GET"
     }).then(function(response) {
         var arraySearch = (Math.floor(Math.random() * 9));
-    
-      
-      console.log(arraySearch);
-     
-      console.log(response);
-
-      
-
-      
-       var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";
-       
+      // console.log(arraySearch);
+      // console.log(response); 
+      var movieSearch2URL = "https://www.omdbapi.com/?T=" + response.Search[arraySearch].Title + "&apikey=d9a4745e";       
       movieDetail(movieSearch2URL);
-      console.log(movieSearch2URL);
-  
-    
+      console.log(movieSearch2URL);   
     });
 
    function movieDetail(movieSearch2URL) {
@@ -258,13 +108,14 @@ function searchMovies() {
               moviePoster = response.Poster
               movieActors = response.Actors
           
-              var newCard =`   <div class="card-row">
+              var newCard =` <br>
+            <div class="card-row">
               <div class="card">
                 <div class="card-image">
                   <div class="card-content">
-                    <div>${movieName}</div>
+                    <div><b>${movieName}</b></div>
                     <img src="${moviePoster}">
-                    <div>Actors: ${movieActors}</div>
+                    <div><b>Actors: </b> ${movieActors}</div>
                   </div>
                 </div>
               </div>
@@ -274,13 +125,11 @@ function searchMovies() {
           default: 
           searchMovies();
           break;
-
-      }
-      
+      }      
     });
   }
 }
-  
+
 // radio button checked and the button pushed
   $(".btn").on("click", function(event) {
       var checkRadio = document.querySelector( 
@@ -299,3 +148,4 @@ function searchMovies() {
 // name
 // Rating 
 // year 
+	
