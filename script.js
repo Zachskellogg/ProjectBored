@@ -71,11 +71,18 @@ function randomBook() {
 }
 
 function searchMovies() {
+<<<<<<< HEAD
 
     var genre = $("#genreSelect :selected").text();
     var pageNu = (Math.floor(Math.random() * 80) + 1);
     var movieSearchURL = "https://www.omdbapi.com/?s=" + genre + "&page=" + pageNu + "&apikey=d9a4745e";
   //  console.log(movieSearchURL);
+=======
+    var genre = $("#genreSelect :selected").text();
+    var pageNu = (Math.floor(Math.random() * 80) + 1);
+    var movieSearchURL = "https://www.omdbapi.com/?s=" + genre + "&page=" + pageNu + "&apikey=d9a4745e";
+   console.log(movieSearchURL);
+>>>>>>> master
     $.ajax({
       url: movieSearchURL,
       method: "GET"
