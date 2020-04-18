@@ -140,9 +140,9 @@ function searchMovies() {
 }
 // radio button checked and the button pushed
   $(".btn").on("click", function(event) {
-    var checkMovie = document.querySelector('input[name="group1"]:checked');
-    var checkGame = document.querySelector('input[name="group2"]:checked');
-    var checkBook = document.querySelector('input[name="group3"]:checked');
+    var checkMovie = document.querySelector('input[value="movies"]:checked');
+    var checkGame = document.querySelector('input[value="games"]:checked');
+    var checkBook = document.querySelector('input[value="books"]:checked');
     if (checkGame != null) {
       for (i=0; i<6; i++) {
         event.preventDefault();
