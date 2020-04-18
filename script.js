@@ -37,7 +37,7 @@ function randomGame() {
         <div class="card">
           <div class="card-image">
             <div class="card-content">
-              <div class="card-game-name">${gameName}</div>
+              <div class="card-game-name" title="${gameName}">${gameName}</div>
                 <img src="${gameImg}">
                 <div><b>Rating: </b> ${rating} / 5</div>
             </div>
@@ -71,7 +71,7 @@ function randomBook() {
         <div class="card">
           <div class="card-image">
             <div class="card-content">
-              <div class="card-book-name">${bookName}</div>
+              <div class="card-book-name" title="${bookName}" >${bookName}</div>
                 <img src="${bookCover}">
             </div>
           </div>
